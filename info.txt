@@ -1,0 +1,32 @@
+==== PENDÊNCIAS IOS ====
+
+#001 => PENDÊNCIA
+
+Rodar o comando em ./ios
+
+$ npx pod-install ios
+ou
+$ cd ./ios && pod install
+
+Obs1: Para utilizar a segunda opção é necessário ter instalado o cocoapods
+Obs2: Ambos os comandos só funcionam em ambiente MAC
+
+Após executar o comando
+
+$ yarn ios
+
+#002 => PENDÊNCIA
+
+Checar se as fonts Poppins e/ou Roboto estão sendo aplicadas
+
+Obs1: No IOS, as fonts tem um nome interno no arquivo.
+Ao usar a font, deve-se checar se o nome do arquivo é o
+mesmo desse nome interno (PostScript Name), caso sejam diferentes,
+então mudar o nome dos arquivos das fonts para esse que está
+no PostScript Name.
+
+Falta configurar a splashscreen para IOS
+https://medium.com/reactbrasil/adicionando-uma-splash-screen-no-react-native-29262db674f8#id_token=eyJhbGciOiJSUzI1NiIsImtpZCI6ImRlOTU1NmFkNDY4MDMxMmMxMTdhZmFlZjI5MjBmNWY5OWE0Yzc5ZmQiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYmYiOjE2MTkwOTkyNTYsImF1ZCI6IjIxNjI5NjAzNTgzNC1rMWs2cWUwNjBzMnRwMmEyamFtNGxqZGNtczAwc3R0Zy5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsInN1YiI6IjExMDg3NzUyODcwMTgxODAyNjM4MiIsImVtYWlsIjoianVhbmNsZWl0b24zMEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXpwIjoiMjE2Mjk2MDM1ODM0LWsxazZxZTA2MHMydHAyYTJqYW00bGpkY21zMDBzdHRnLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwibmFtZSI6Ikp1YW4gQ2xlaXRvbiIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHZzZYenM1Ym9mZEE1M2VJWFFsdENCUHZkcnZvY0FPb196Znhpa3dnUT1zOTYtYyIsImdpdmVuX25hbWUiOiJKdWFuIiwiZmFtaWx5X25hbWUiOiJDbGVpdG9uIiwiaWF0IjoxNjE5MDk5NTU2LCJleHAiOjE2MTkxMDMxNTYsImp0aSI6ImIyM2Y1NzU3MGQzMjMwMGM4ZjgyZTcwYmVkYmYzZTYxMDhlNDkxZTUifQ.q7vY4pV08jbMVcL2X3hS8AdIJCtbhntLgfZtSDMDWN7vw1816-50QLtJEprooj-zO9ng8KZq8e-tWDf25wgntQh5PlLsNGkcrT4SIVQQ_uhOMVJqH80z7BpyrgD_lt-lhyP_GNmpK9Bjx4ZswQDmLdvOosUFiUcoQMnUF4B6eLKjCQbzHDwH-Ldq1-pIVC4KZqN04T1G6Sw1Nzx6yyCoTC31hb5fOnPnpxEIovuhgtyxQ8eUZej2iP5V2T8qKbo6V-RoshNDwJoBx4d9NZyCONhdTyZo-lH4wSq4JLnMm1GOleK_hLKNWnYkSeHHMu2vHVFFyMBta3i4e16ci4vnKw
+
+Caso dê problema na splashscreen no IOS, chechar os passos desse link para IOS
+https://github.com/zoontek/react-native-bootsplash
