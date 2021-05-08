@@ -1,4 +1,4 @@
-interface User {
+interface IUser {
   id?: string;
   name?: string;
   cpfCnpj?: string;
@@ -21,4 +21,4 @@ interface User {
   updatedAt?: Date;
 }
 
-export default User;
+export default IUser;

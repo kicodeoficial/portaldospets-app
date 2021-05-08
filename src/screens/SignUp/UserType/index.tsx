@@ -5,10 +5,10 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import IconFontAwesome from 'react-native-vector-icons/FontAwesome';
 
 import {ImagePetShop} from '../../../assets/images';
+import {configValues} from '../../../config';
 import {HeaderBack, ButtonDefault} from '../../../components';
-import values from '../../../config/values';
 import {useAuth} from '../../../hooks/auth';
-import {IUser} from '../../../interfaces';
+import {IUser} from '../../../models';
 import {notifyFlashMessage} from '../../../utils/notifications';
 import theme from '../../../styles/themes/light';
 
@@ -29,11 +29,17 @@ import {
 const SignUpUserType: React.FC = () => {
   const {goBack} = useNavigation();
   const {navigate} = useNavigation();
-  const {updateUserLocalStorage} = useAuth();
-  const [role, setRole] = useState<string>('');
+  const {updateUserLocalStorage, user} = useAuth();
+  const [role, setRole] = useState<string>(user?.role || '');
+  const [nameRouteScreen, setNameRouteScreen] = useState<string>(
+    'SignUpCustomer',
+  );
 
-  const changerole = (value: string) => {
+  const changeRole = (value: string) => {
     setRole(value);
+    setNameRouteScreen(
+      value === configValues.user.role.customer ? 'SignUpCustomer' : 'Welcome',
+    );
   };
 
   const notifyFieldRequired = () => {
@@ -45,10 +51,10 @@ const SignUpUserType: React.FC = () => {
   };
 
   useEffect(() => {
-    const user: IUser = {
+    const userSaved: IUser = {
       role,
     };
-    updateUserLocalStorage(user);
+    updateUserLocalStorage(userSaved);
   }, [role]);
 
   return (
@@ -75,36 +81,38 @@ const SignUpUserType: React.FC = () => {
             <Options>
               <OptionView>
                 <OptionTouch
-                  isActive={role === values.user.role.customer}
-                  onPress={() => changerole(values.user.role.customer)}>
+                  isActive={role === configValues.user.role.customer}
+                  onPress={() => changeRole(configValues.user.role.customer)}>
                   <MaterialIcons
                     name="pets"
                     size={30}
                     color={
-                      role === values.user.role.customer
+                      role === configValues.user.role.customer
                         ? theme.colors.textRedPrimary
                         : theme.colors.textSecondary
                     }
                   />
                   <OptionTouchText
-                    isActive={role === values.user.role.customer}>
+                    isActive={role === configValues.user.role.customer}>
                     Quero ser cliente
                   </OptionTouchText>
                 </OptionTouch>
                 <OptionTouch
-                  isActive={role === values.user.role.professional}
-                  onPress={() => changerole(values.user.role.professional)}>
+                  isActive={role === configValues.user.role.professional}
+                  onPress={() =>
+                    changeRole(configValues.user.role.professional)
+                  }>
                   <IconFontAwesome
                     name="user-md"
                     size={30}
                     color={
-                      role === values.user.role.professional
+                      role === configValues.user.role.professional
                         ? theme.colors.textRedPrimary
                         : theme.colors.textSecondary
                     }
                   />
                   <OptionTouchText
-                    isActive={role === values.user.role.professional}>
+                    isActive={role === configValues.user.role.professional}>
                     Quero anunciar
                   </OptionTouchText>
                 </OptionTouch>
@@ -113,7 +121,7 @@ const SignUpUserType: React.FC = () => {
             <Buttons>
               <ButtonDefault
                 onPress={() =>
-                  role ? navigate('Welcome') : notifyFieldRequired()
+                  role ? navigate(nameRouteScreen) : notifyFieldRequired()
                 }>
                 Continuar
               </ButtonDefault>

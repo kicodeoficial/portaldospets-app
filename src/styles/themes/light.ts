@@ -1,5 +1,7 @@
 // DEFINIÇÃO DE ESTILOS LIGHT
-const light = {
+import {DefaultTheme} from 'styled-components';
+
+const light: DefaultTheme = {
   colors: {
     backgroundPrimary: '#FFFFFF',
     backgroundSecondary: '#F4F5F9',

@@ -2,7 +2,13 @@ import React from 'react';
 
 import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
 
-import {Welcome, SignIn, SignUpUserType, ResetPassword} from '../screens';
+import {
+  Welcome,
+  SignIn,
+  SignUpUserType,
+  ResetPassword,
+  SignUpCustomer,
+} from '../screens';
 
 const Auth = createStackNavigator();
 
@@ -19,6 +25,7 @@ const AuthRoutes: React.FC = () => {
       <Auth.Screen name="SignIn" component={SignIn} />
       <Auth.Screen name="ResetPassword" component={ResetPassword} />
       <Auth.Screen name="SignUpUserType" component={SignUpUserType} />
+      <Auth.Screen name="SignUpCustomer" component={SignUpCustomer} />
     </Auth.Navigator>
   );
 };

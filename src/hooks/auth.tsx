@@ -7,8 +7,7 @@ import React, {
 } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import {IUser} from '../interfaces';
-import {Session} from '../models';
+import {IUser, ISession} from '../models';
 import {apiPortalDosPets} from '../services';
 
 interface SignInCredentials {
@@ -40,60 +39,16 @@ const AuthProvider: React.FC = ({children}) => {
       password,
     });
 
-    const {user: userFound, token}: Session = responseSession.data;
+    const {user: userFound, token}: ISession = responseSession.data;
 
-    const {
-      id,
-      accept_terms_of_use,
-      balance,
-      name,
-      cpf_cnpj,
-      person_type,
-      date_of_birth,
-      sex,
-      status,
-      role,
-      company_size,
-      email: userEmail,
-      cellphone,
-      image_url,
-      type_gateway,
-      gateway_reference_id,
-      referral_code,
-      created_at,
-      updated_at,
-    } = userFound;
-
-    const userSaved: IUser = {
-      id,
-      name,
-      cpfCnpj: cpf_cnpj,
-      personType: person_type,
-      dateOfBirth: date_of_birth,
-      sex,
-      status,
-      role,
-      companySize: company_size,
-      email: userEmail,
-      cellphone,
-      imageUrl: image_url,
-      acceptTermsOfUse: accept_terms_of_use,
-      typeGateway: type_gateway,
-      gatewayReferenceId: gateway_reference_id,
-      referralCode: referral_code,
-      balance,
-      createdAt: created_at,
-      updatedAt: updated_at,
-    };
-
-    setUser(userSaved);
+    setUser(userFound);
 
     setLoading(false);
 
     apiPortalDosPets.defaults.headers.Authorization = `Bearer ${token}`;
 
     await AsyncStorage.multiSet([
-      [USER_DATA_LOCALSTORAGE, JSON.stringify(userSaved)],
+      [USER_DATA_LOCALSTORAGE, JSON.stringify(userFound)],
       [SESSION_TOKEN_LOCALSTORAGE, token],
     ]);
   }, []);

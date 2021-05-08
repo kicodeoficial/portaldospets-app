@@ -13,7 +13,7 @@ import * as Yup from 'yup';
 import {ImageLogotipoBlack} from '../../assets/images';
 import {InputText, HeaderBack, ButtonDefault} from '../../components';
 import {configRules} from '../../config';
-import {RecoverPassword} from '../../models';
+import {IRecoverPassword} from '../../models';
 import {apiPortalDosPets} from '../../services';
 import {notifyFlashMessage} from '../../utils/notifications';
 import {validatorYup} from '../../utils/validators';
@@ -166,7 +166,7 @@ const ResetPassword: React.FC = () => {
           RECOVER_DATA_LOCALSTORAGE,
         );
 
-        const recoverPassword: RecoverPassword = JSON.parse(
+        const recoverPassword: IRecoverPassword = JSON.parse(
           recoverPasswordSaved || '{}',
         );
 
@@ -229,12 +229,12 @@ const ResetPassword: React.FC = () => {
           RECOVER_DATA_LOCALSTORAGE,
         );
 
-        const recoverPassword: RecoverPassword = JSON.parse(
+        const recoverPassword: IRecoverPassword = JSON.parse(
           recoverPasswordSaved || '{}',
         );
 
         await apiPortalDosPets.put(
-          `/users/${recoverPassword.users_id}/password`,
+          `/users/${recoverPassword.usersId}/password`,
           {
             password: data.password,
           },

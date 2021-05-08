@@ -1,6 +1,8 @@
 import styled, {css} from 'styled-components/native';
 import Feather from 'react-native-vector-icons/Feather';
 
+import TextInputMask from 'react-native-text-input-mask';
+
 interface IContainerProps {
   isFocused: boolean;
   isErrored: boolean;
@@ -32,7 +34,7 @@ export const Icon = styled(Feather)`
   margin-right: 5px;
 `;
 
-export const Input = styled.TextInput`
+export const Input = styled(TextInputMask)`
   flex: 1;
   color: ${({theme}) => theme.colors.textDark};
   font-size: ${({theme}) => theme.fontSize.paragraphBig}px;

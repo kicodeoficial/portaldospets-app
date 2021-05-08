@@ -24,7 +24,7 @@ import {
   InformationTitle,
   InformationSubtitle,
   FormContainer,
-  FormSignin,
+  FormSignIn,
   FielGroup,
   ForgetPassword,
   ForgetPasswordTouch,
@@ -106,7 +106,7 @@ const SignIn: React.FC = () => {
               </InformationSubtitle>
             </Information>
             <FormContainer>
-              <FormSignin ref={formSignInRef} onSubmit={handleSubmitSignIn}>
+              <FormSignIn ref={formSignInRef} onSubmit={handleSubmitSignIn}>
                 <FielGroup>
                   <InputText
                     name="email"
@@ -144,7 +144,7 @@ const SignIn: React.FC = () => {
                   onPress={() => formSignInRef.current?.submitForm()}>
                   Entrar
                 </ButtonDefault>
-              </FormSignin>
+              </FormSignIn>
             </FormContainer>
           </Container>
         </ScrollView>

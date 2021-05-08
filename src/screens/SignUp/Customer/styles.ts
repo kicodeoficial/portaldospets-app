@@ -8,7 +8,7 @@ export const Container = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
-  padding: 0 6%;
+  padding: 4% 6%;
   padding-top: ${getStatusBarHeight()}px;
   background-color: ${({theme}) => theme.colors.backgroundPrimary};
 
@@ -16,13 +16,14 @@ export const Container = styled.View`
 `;
 
 export const LogotipoImage = styled.Image`
+  margin-top: 8%;
   max-width: 200px;
   max-height: 68.5px;
 `;
 
 export const Information = styled.View`
-  padding: 0 10%;
-  margin: 14% 0 20%;
+  padding: 0 6%;
+  margin: 14% 0;
 `;
 
 export const InformationTitle = styled.Text`
@@ -38,7 +39,6 @@ export const InformationSubtitle = styled.Text`
   font-family: ${({theme}) => theme.fontFamily.poppinsLight};
   color: ${({theme}) => theme.colors.textDark};
   text-align: center;
-  margin-bottom: 0;
 `;
 
 export const FormContainer = styled.View`
@@ -46,24 +46,25 @@ export const FormContainer = styled.View`
   padding: 0% 6%;
 `;
 
-export const FormSignIn = styled(Form)``;
+export const FormSignUp = styled(Form)``;
 
 export const FielGroup = styled.View`
   margin-bottom: 12px;
 `;
 
-export const ForgetPassword = styled.View`
-  width: 100%;
-  align-items: flex-end;
-  margin-bottom: 6%;
+export const TermsOfUseView = styled.View`
+  padding: 5% 0;
 `;
 
-export const ForgetPasswordTouch = styled.TouchableOpacity`
-  padding: 2% 4%;
-`;
-
-export const ForgetPasswordText = styled.Text`
-  color: ${({theme}) => theme.colors.textRedPrimary};
+export const TermsOfUseText = styled.Text`
+  text-align: center;
   font-size: ${({theme}) => theme.fontSize.paragraphNormal}px;
-  font-family: ${({theme}) => theme.fontFamily.poppinsLight};
+  font-family: ${({theme}) => theme.fontFamily.poppinsMedium};
+  color: ${({theme}) => theme.colors.textDark};
+`;
+
+export const TermsOfUseLink = styled.Text`
+  font-size: ${({theme}) => theme.fontSize.paragraphNormal}px;
+  font-family: ${({theme}) => theme.fontFamily.poppinsMedium};
+  color: ${({theme}) => theme.colors.textRedPrimary};
 `;

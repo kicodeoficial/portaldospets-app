@@ -1,3 +1,3 @@
-export {default as User} from './User';
-export {default as Session} from './Session';
-export {default as RecoverPassword} from './RecoverPassword';
+export {default as IUser} from './IUser';
+export {default as ISession} from './ISession';
+export {default as IRecoverPassword} from './IRecoverPassword';
